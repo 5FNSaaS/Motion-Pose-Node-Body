@@ -337,7 +337,7 @@ module.exports = function(RED) {
                 })
             
                 const testCanvas = document.getElementById('test-canvas')
-                const textCtx = testCanvas.getContext('2d')
+                const testCtx = testCanvas.getContext('2d')
             
                 // Pose Detection result function
                 // 캔버스에 Pose Detection 결과값 렌더링하는 함수
