@@ -444,7 +444,7 @@ module.exports = function(RED) {
                                 startDetect(render)
                             })
                             .catch(err => {
-                                console.log(err)
+                                startDetect(render)
                             })
                     }
                 }
