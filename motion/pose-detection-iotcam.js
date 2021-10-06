@@ -129,7 +129,7 @@ module.exports = function(RED) {
                         </div>
                     </div>
                     <div style="display: inline-block;" align="center" class="tooltip">
-                        <canvas id="output-canvas" style="border:3px solid #B2A1F4; width:600px; height:340px;"></canvas><br>
+                        <canvas id="output-canvas" style="border:3px solid #B2A1F4"></canvas><br>
                         <div class="tooltip-content">
                             <p>Tracking your Pose</p>
                         </div>
