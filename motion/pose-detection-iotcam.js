@@ -530,6 +530,8 @@ module.exports = function(RED) {
                     name: 'name',
                     streamUrl: `rtsps://${mnid}:${token}@${rtspUrl}`,
                     wsPort: rtspPort,
+                    width: 1920,
+                    height: 1080,
                     ffmpegOptions: { // options ffmpeg flags
                         '-stats': '', // an option with no neccessary value uses a blank string
                         '-r': 30 // options with required values specify the value after the key
