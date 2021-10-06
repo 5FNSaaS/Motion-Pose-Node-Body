@@ -192,7 +192,7 @@ module.exports = function(RED) {
                 function startDetect(renderFunc) {
                     // 최초의 오디오 트랙을 생성한다.
                     // (Loop 정지 함수는 현재 사용하지 않고 있음, 개발자의 취지에 따라 커스터마이징 가능)
-                    const fps = 6
+                    const fps = 60
                     const stopLoop = audioTimerLoop(renderFunc, 1000 / fps)
                 }
             
