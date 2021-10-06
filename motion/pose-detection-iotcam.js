@@ -339,6 +339,14 @@ module.exports = function(RED) {
                     // 빈 캔버스 로드
                     outputCtx.save()
                     outputCtx.clearRect(0, 0, outputElement.width, outputElement.height)
+                    
+                    canvasCtx.drawImage(results.segmentationMask, 0, 0,
+                                        canvasElement.width, canvasElement.height);
+                  
+                    // Only overwrite existing pixels.
+                    canvasCtx.globalCompositeOperation = 'source-in';
+                    canvasCtx.fillStyle = '#00FF00';
+                    canvasCtx.fillRect(0, 0, canvasElement.width, canvasElement.height);
             
                     // draw video image on canvas.
                     // 캔버스에 비디오 화면 표시
