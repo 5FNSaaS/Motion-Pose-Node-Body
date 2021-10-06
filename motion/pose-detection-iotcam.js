@@ -129,6 +129,12 @@ module.exports = function(RED) {
                             <p>Tracking your Pose</p>
                         </div>
                     </div>
+                    <div style="display: inline-block;" align="center" class="tooltip">
+                        <canvas id="test-canvas" width=1920px height=1080px style="border:3px solid #B2A1F4"></canvas><br>
+                        <div class="tooltip-content">
+                            <p>Tracking your Pose</p>
+                        </div>
+                    </div>
                     <div>
                         <br>
                         <select id="secondTimer">
@@ -330,20 +336,26 @@ module.exports = function(RED) {
                     monitorSocket.emit("echo", "echo from mediapipe")
                 })
             
+                const testCanvas = document.getElementById('test-canvas')
+                const textCtx = testCanvas.getContext('2d')
             
                 // Pose Detection result function
                 // 캔버스에 Pose Detection 결과값 렌더링하는 함수
                 function onResults(results) {
 
+                    // 테스트
+                    testCtx.save()
+                    testCtx.clearRect(0, 0, testCanvas.width, testCanvas.height)
+                    testCtx.globalCompositeOperation = 'destination-atop'
+                    testCtx.drawImage(
+                        results.image, 0, 0, testCanvas.width, testCanvas.height)
+                    testCtx.restore()
+
+
                     // clear canvas
                     // 빈 캔버스 로드
                     outputCtx.save()
                     outputCtx.clearRect(0, 0, outputElement.width, outputElement.height)
-                    
-                    // Only overwrite existing pixels.
-                    outputCtx.globalCompositeOperation = 'source-in';
-                    outputCtx.fillStyle = '#00FF00';
-                    outputCtx.fillRect(0, 0, outputElement.width, outputElement.height);
             
                     // draw video image on canvas.
                     // 캔버스에 비디오 화면 표시
