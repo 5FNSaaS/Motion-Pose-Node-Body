@@ -111,8 +111,8 @@ module.exports = function(RED) {
                         background-color: #7557f0;
                         cursor: pointer;
                     }
-            
-                    #output-canvas {
+
+                    #input-canvas {
                         width: 600px;
                         height: 340px;
                     }
