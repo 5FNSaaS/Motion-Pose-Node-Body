@@ -340,9 +340,6 @@ module.exports = function(RED) {
                     outputCtx.save()
                     outputCtx.clearRect(0, 0, outputElement.width, outputElement.height)
                     
-                    outputCtx.drawImage(results.segmentationMask, 0, 0,
-                        outputElement.width, outputElement.height);
-                  
                     // Only overwrite existing pixels.
                     outputCtx.globalCompositeOperation = 'source-in';
                     outputCtx.fillStyle = '#00FF00';
