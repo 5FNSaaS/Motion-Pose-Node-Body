@@ -425,8 +425,7 @@ module.exports = function(RED) {
                         // RTSP 클라이언트 생성 및 렌더링
                         const rtspClient = new WebSocket(rtspUrl)
                         const player = new jsmpeg(rtspClient, {
-                            canvas: inputElement,
-                            pauseWhenHidden: false
+                            canvas: inputElement
                         })
 
                         // AudioContext 시작하기 위한 장치 탐색
