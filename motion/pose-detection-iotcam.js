@@ -111,6 +111,11 @@ module.exports = function(RED) {
                         background-color: #7557f0;
                         cursor: pointer;
                     }
+            
+                    #output-canvas {
+                        width: 600px;
+                        height: 340px;
+                    }
                 </style>
             </head>
             
@@ -118,19 +123,13 @@ module.exports = function(RED) {
                 <div align="center" style="min-height: 800px;">
                     <h1>Pose Detection Page</h1>
                     <div style="display: inline-block;" align="center" class="tooltip">
-                        <canvas id="input-canvas" style="border:3px solid grey"></canvas><br>
+                        <canvas id="input-canvas" width="600px" height="340px" style="border:3px solid grey"></canvas><br>
                         <div class="tooltip-content">
                             <p>Your Camera</p>
                         </div>
                     </div>
                     <div style="display: inline-block;" align="center" class="tooltip">
-                        <canvas id="output-canvas" width=1920px height=1080px style="border:3px solid #B2A1F4"></canvas><br>
-                        <div class="tooltip-content">
-                            <p>Tracking your Pose</p>
-                        </div>
-                    </div>
-                    <div style="display: inline-block;" align="center" class="tooltip">
-                        <canvas id="test-canvas" width=1920px height=1080px style="border:3px solid #B2A1F4"></canvas><br>
+                        <canvas id="output-canvas" width="600px" height="340px" style="border:3px solid #B2A1F4"></canvas><br>
                         <div class="tooltip-content">
                             <p>Tracking your Pose</p>
                         </div>
@@ -336,21 +335,9 @@ module.exports = function(RED) {
                     monitorSocket.emit("echo", "echo from mediapipe")
                 })
             
-                const testCanvas = document.getElementById('test-canvas')
-                const testCtx = testCanvas.getContext('2d')
-            
                 // Pose Detection result function
                 // 캔버스에 Pose Detection 결과값 렌더링하는 함수
                 function onResults(results) {
-
-                    // 테스트
-                    testCtx.save()
-                    testCtx.clearRect(0, 0, testCanvas.width, testCanvas.height)
-                    testCtx.globalCompositeOperation = 'destination-atop'
-                    testCtx.drawImage(
-                        results.image, 0, 0, testCanvas.width, testCanvas.height)
-                    testCtx.restore()
-
 
                     // clear canvas
                     // 빈 캔버스 로드
